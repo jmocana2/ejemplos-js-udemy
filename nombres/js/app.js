@@ -2,6 +2,7 @@ const generarNombre = document.getElementById('generar-nombre');
 
 //genera un listado de 5 nombres según los filtros aplicados a la API
 function obtenerNombres(origen, genero, nNombres){
+  const resultado = document.getElementById('resultado');
   let url = ''
   url += 'https://uinames.com/api/?'
   if(origen){
@@ -13,7 +14,27 @@ function obtenerNombres(origen, genero, nNombres){
   if(nNombres > 0){
     url += `amount=${nNombres}&`;
   }
-  console.log(url);
+  
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('GET', url, true)
+  xhr.onload = function(){
+    if(this.status === 200){
+      const nombres = JSON.parse(this.responseText);
+      let ui = `<h2>Nombres generados</h2>
+      <ul class='lista'>`;
+
+      nombres.map((nombre) =>{
+        ui += `<li>${nombre.name}</li>`
+      })
+      ui += `</ul>`;
+      resultado.innerHTML = ui;
+
+    }
+  }
+  xhr.send();
+  
+
 }
 
 /** Eventos */
