@@ -9,6 +9,8 @@ class Formulario extends Component {
   crearClima = (e) => {
     e.preventDefault();
 
+    console.log('entra');
+
     const info = {
       ciudad: this.ciudadRef.current.value,
       pais: this.paisRef.current.value
