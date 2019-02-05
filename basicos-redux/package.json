@@ -1,0 +1,17 @@
+{
+  "name": "basicos-redux",
+  "version": "1.0.0",
+  "description": "aprendiendo redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "jmocana.eu",
+  "license": "ISC",
+  "devDependencies": {
+    "redux": "^4.0.1"
+  }
+}
